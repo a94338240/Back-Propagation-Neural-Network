@@ -5,7 +5,6 @@
  */
 
 #pragma once
-
 using std::size_t;
 
 namespace Config {

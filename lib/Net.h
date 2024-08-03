@@ -5,7 +5,6 @@
  */
 
 #pragma once
-
 #include <vector>
 #include "Config.h"
 
@@ -13,18 +12,14 @@ using std::vector;
 
 struct Sample {
     vector<double> feature, label;
-
     Sample();
-
     Sample(const vector<double> &feature, const vector<double> &label);
-
     void display();
 };
 
 struct Node {
     double value{}, bias{}, bias_delta{};
     vector<double> weight, weight_delta;
-
     explicit Node(size_t nextLayerSize);
 };
 
@@ -61,15 +56,12 @@ private:
     void backward(const vector<double> &label);
 
     /**
-     * Revise 'weight' and 'bias according to
-     * 'weight_delta'(the weight correction value) and
-     * 'bias_weight'(the bias correction value)
+     * Revise 'weight' and 'bias according to 'weight_delta'(the weight correction value) and 'bias_weight'(the bias correction value)
      * @param batch_size
      */
     void revise(size_t batch_size);
 
 public:
-
     Net();
 
     /**
@@ -92,5 +84,4 @@ public:
      * @return The sample set, in which each sample has 'feature' and 'label'(predicted)
      */
     vector<Sample> predict(const vector<Sample> &predictDataSet);
-
 };
